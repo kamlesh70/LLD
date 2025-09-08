@@ -1,3 +1,3 @@
-import { clientSide } from "./creational-pattern/2.factory-pattern";
+import { main } from "./creational-pattern/4. abstract-factory-pattern";
 
-clientSide();
+main();
