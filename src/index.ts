@@ -1,1 +1,1 @@
-import "./structural-design-patterns/1.adaptor-pattern/index";
+import "./structural-design-patterns/2.decorator-pattern/index";
