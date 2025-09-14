@@ -1,1 +1,1 @@
-import "./structural-design-patterns/2.decorator-pattern/index";
+import "./3.behavioral-design-patterns/1.iterator-pattern/index";
