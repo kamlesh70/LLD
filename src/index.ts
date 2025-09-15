@@ -1,1 +1,1 @@
-import "./3.behavioral-design-patterns/1.iterator-pattern/index";
+import "./3.behavioral-design-patterns/3.strategy-pattern/index";
