@@ -1,1 +1,1 @@
-import "./3.behavioral-design-patterns/7.chain-of-responsibility";
+import "./3.behavioral-design-patterns/9.mediator-pattern/index";
