@@ -1,0 +1,8 @@
+
+
+export class EntryController {
+
+  constructor(
+  ) {}
+
+}
