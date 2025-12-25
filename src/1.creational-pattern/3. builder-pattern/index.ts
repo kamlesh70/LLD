@@ -33,6 +33,11 @@ class Query {
       return this;
     }
 
+    addRelation(field: string): this {
+      this.parts.push(`LEFT JOIN ${field}`);
+      return this;
+    }
+
     build(): Query {
       return new Query(this.parts.join(" "));
     }

@@ -82,11 +82,34 @@ class CheckoutService {
 
 
 export function main() {
-  const indianCheckoutService = new CheckoutService(new IndianFactory(), GATEWAY_TYPE.PayUGateway);
+  const indianCheckoutService = new CheckoutService(
+    new IndianFactory(),
+    GATEWAY_TYPE.PayUGateway
+  );
   indianCheckoutService.completeOrder(12.1);
 
   console.log("==============================");
 
-  const USCheckoutService = new CheckoutService(new USFactory(), GATEWAY_TYPE.RazorpayGateway);
+  const USCheckoutService = new CheckoutService(
+    new USFactory(),
+    GATEWAY_TYPE.RazorpayGateway
+  );
   USCheckoutService.completeOrder(10);
 }
+
+export function main2() {
+  const indianCheckoutService = new CheckoutService(
+    new IndianFactory(),
+    GATEWAY_TYPE.RazorpayGateway
+  );
+  indianCheckoutService.completeOrder(20.0);
+
+  const USCheckoutService = new CheckoutService(
+    new USFactory(),
+    GATEWAY_TYPE.PayUGateway
+  );
+  USCheckoutService.completeOrder(20);
+}
+
+main();
+main2();
