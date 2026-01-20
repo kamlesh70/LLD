@@ -22,7 +22,6 @@ async function play() {
     [row, col] = await rl.question("Enter your move: ");
     const humanMove = new Move(new Cell(Number(row), Number(col)), human);
     gameEngine.move(board, humanMove);
-    console.log(board.printBoard());
     if (!ruleEngine.gameState(board).getGameResult().isOver) {
       const computerMove = aiEngine.suggestMove(board, computer);
       gameEngine.move(board, computerMove);

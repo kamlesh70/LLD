@@ -11,13 +11,13 @@ export class RuleEngine {
       let rowComplete: boolean = true;
       for (let i = 0; i < 3; i++) {
         rowComplete = true;
-        firstCharacter = board.getCell(i, 0);
+        firstCharacter = board.getSymbol(i, 0);
         if (!firstCharacter) {
           rowComplete = false;
           break;
         }
         for (let j = 1; j < 3; j++) {
-          if (board.getCell(i, j) !== firstCharacter) {
+          if (board.getSymbol(i, j) !== firstCharacter) {
             rowComplete = false;
             break;
           }
@@ -34,14 +34,14 @@ export class RuleEngine {
 
       let colComplete = true;
       for (let i = 0; i < 3; i++) {
-        firstCharacter = board.getCell(0, i);
+        firstCharacter = board.getSymbol(0, i);
         if (!firstCharacter) {
           rowComplete = false;
           break;
         }
         colComplete = true;
         for (let j = 1; j < 3; j++) {
-          if (board.getCell(j, i) !== firstCharacter) {
+          if (board.getSymbol(j, i) !== firstCharacter) {
             colComplete = false;
             break;
           }
@@ -58,12 +58,12 @@ export class RuleEngine {
 
       let diagonalComplete = true;
       for (let i = 1; i < 3; i++) {
-        firstCharacter = board.getCell(0, 0);
+        firstCharacter = board.getSymbol(0, 0);
         if (!firstCharacter) {
           rowComplete = false;
           break;
         }
-        if (firstCharacter !== board.getCell(i, i)) {
+        if (firstCharacter !== board.getSymbol(i, i)) {
           diagonalComplete = false;
           break;
         }
@@ -75,12 +75,12 @@ export class RuleEngine {
 
       let reverseDiagonalComplete = true;
       for (let i = 1; i < 3; i++) {
-        firstCharacter = board.getCell(0, 2);
+        firstCharacter = board.getSymbol(0, 2);
         if (!firstCharacter) {
           rowComplete = false;
           break;
         }
-        if (board.getCell(i, 2 - i) !== firstCharacter) {
+        if (board.getSymbol(i, 2 - i) !== firstCharacter) {
           reverseDiagonalComplete = false;
           break;
         }
@@ -93,7 +93,7 @@ export class RuleEngine {
       let countOfFilledCells = 0;
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-          if (board.getCell(i, j) !== null) {
+          if (board.getSymbol(i, j) !== null) {
             countOfFilledCells++;
           }
         }

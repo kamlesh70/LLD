@@ -3,7 +3,7 @@ import { Cell } from "../game/Cell";
 import { Move } from "../game/Move";
 import { Player } from "../game/Player";
 
-export class TicTacToe extends Board {
+export class TicTacToe implements Board {
   private cell: (string | null)[][] = [
     [null, null, null],
     [null, null, null],
@@ -14,18 +14,20 @@ export class TicTacToe extends Board {
     this.setCell(move.getCell(), move.getPlayer());
   }
 
-  public getCell(row: number, col: number): string | null {
+  public getSymbol(row: number, col: number): string | null {
     return this.cell[row][col];
   }
 
   public setCell(cell: Cell, player: Player): boolean {
     try {
+      if (this.cell[cell.row][cell.col] !== null) {
+        throw new Error("invalid move!");
+      }
       this.cell[cell.row][cell.col] = player.symbol;
-      console.log(cell.row, cell.col, this.cell);
       return true;
     } catch (error) {
       console.log("Error: while setting cell", error);
-      return false;
+      throw error;
     }
   }
 
@@ -42,5 +44,17 @@ export class TicTacToe extends Board {
       }
       console.log(str);
     }
+  }
+
+  public copy(): Board {
+    const newTicTakToe = new TicTacToe();
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        newTicTakToe.cell[i][j] = this.cell[i][j];
+      }
+    }
+
+    return newTicTakToe;
   }
 }
