@@ -7,7 +7,7 @@ import { RuleEngine } from "./RuleEngine";
 
 export class AIEngine {
   public suggestMove(board: Board, player: Player): Move {
-    const threshold = 3;
+    const threshold = 4;
     if (this.countMove(board) > threshold) {
       return this.suggestSmartMove(board, player);
     } else {
