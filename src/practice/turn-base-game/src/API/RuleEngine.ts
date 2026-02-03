@@ -1,9 +1,23 @@
 import { TicTacToe } from "../boards/TicTacToe";
 import { Board } from "../game/Board";
+import { GameInfo, GameInfoBuilder } from "../game/GameInfo";
 import { GameResult } from "../game/GameResult";
 import { Player } from "../game/Player";
 
 export class RuleEngine {
+  public gameInfo(board: Board): GameInfo {
+    if (board instanceof TicTacToe) {
+      const isFork = true;
+      const winner = "X";
+      return new GameInfoBuilder()
+        .setWinner(winner)
+        .setHashFork(isFork)
+        .build();
+    } else {
+      throw new Error("Invalid board");
+    }
+  }
+
   public gameState(board: Board): GameResult {
     if (board instanceof TicTacToe) {
       let firstCharacter: string | null = null;
